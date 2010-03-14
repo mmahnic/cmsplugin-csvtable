@@ -14,7 +14,7 @@ class CMSCsvTablePlugin(CMSPluginBase):
     model = CsvTablePlugin
     name = _('CSV Table')
     render_template = 'plugins/cmsplugin_csvtable/default.html'
-    change_form_template = 'admin/plugins/cmsplugin_csvtable/plugin_change_form.html'
+    # change_form_template = 'admin/plugins/cmsplugin_csvtable/plugin_change_form.html'
 
     def render(self, context, instance, placeholder):
         rows = instance.getRows()

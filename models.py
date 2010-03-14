@@ -43,7 +43,7 @@ class CsvRow:
 # Derived from CMSPlugin => doesn't exist outside of a page
 class CsvTablePlugin(CMSPlugin):
     caption = models.CharField(_('Caption'), max_length=200)
-    headrows = models.IntegerField(_('Header rows'))
+    headrows = models.IntegerField(_('Header rows'), default=1)
     #columns = models.CharField(_('Column layout'), max_length=200, blank=True
     #    help_text=_(
     #        'Describe the column width and alignment in a comma separated list.\n' +
@@ -53,7 +53,7 @@ class CsvTablePlugin(CMSPlugin):
     #        'column 3 is 10 units wide and left aligned.'
     #        ))
     csv_data = models.TextField(_('CSV Data'))
-    width = models.IntegerField(_('Table width'), choices=CMSPLUGIN_CSVTABLE_TABLE_WIDTHS)
+    width = models.IntegerField(_('Table width'), choices=CMSPLUGIN_CSVTABLE_TABLE_WIDTHS, default=40)
     table_css = models.CharField(_('Table style'), choices=CMSPLUGIN_CSVTABLE_TABLE_STYLES, max_length=20, blank=True)
     wrapper_css = models.CharField(_('Table placement'), choices=CMSPLUGIN_CSVTABLE_WRAPPER_STYLES, max_length=20, blank=True)
 
