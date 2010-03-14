@@ -1,21 +1,17 @@
 
 {# TODO: user defined: apend floating/margin class to wrapper #}
 {# TODO: user defined: set width style for wrapper #}
-<div class="csvtable-wraper" style=""> 
+<div class="csvtable-wraper{%if table.wrapper_css %} {{table.wrapper_css}}{% endif %}" style="{%if has_width %}width: {{table.width}}%;{% endif %}"> 
    {# TODO: user defined: replace styling info for table (default: cvstable) #}
-   <table class="csvtable" summary="{{ table.caption }}">
+   <table class="csvtable{%if table.table_css %} {{table.table_css}}{% endif %}" style="{%if has_width %}width: 100%;{% endif %}" summary="{{ table.caption }}">
    <thead>
-      {% for row in table.rows %}<tr>
-         {% for cell in row.cells %}
-         <th>{{cell.content}}</th>
-         {% endfor %}
+      {% for row in thead_rows %}<tr>
+         {% for cell in row.cells %}<th>{{cell.content}}</th>{% endfor %}
       </tr>{% endfor %}
    </thead>
    <tbody>
-      {% for row in table.rows %}<tr class={% if row.odd %}"odd"{% else %}"even"{% endif %}>
-         {% for cell in row.cells %}
-         <td>{{cell.content}}</td>
-         {% endfor %}
+      {% for row in tbody_rows %}<tr class={% if row.odd %}"odd"{% else %}"even"{% endif %}>
+         {% for cell in row.cells %}<td>{{cell.content}}</td>{% endfor %}
       </tr>{% endfor %}
    </tbody>
    </table>

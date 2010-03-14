@@ -1,0 +1,6 @@
+
+div.csvtable-wraper { 
+   height: 12em; overflow: scroll;
+   margin-bottom: 1em;
+   border: 1px solid black;
+}
