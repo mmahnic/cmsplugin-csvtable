@@ -15,6 +15,6 @@
       </tr>{% endfor %}
    </tbody>
    </table>
-   <div class="caption">{{ table.caption }}</div>
+   {% if table.caption %}<div class="caption{%if table.table_css %} {{table.table_css}}-caption{% endif %}">{{ table.caption }}</div>{% endif %}
 </div>
 

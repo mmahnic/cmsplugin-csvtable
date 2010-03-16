@@ -42,7 +42,7 @@ class CsvRow:
 
 # Derived from CMSPlugin => doesn't exist outside of a page
 class CsvTablePlugin(CMSPlugin):
-    caption = models.CharField(_('Caption'), max_length=200)
+    caption = models.CharField(_('Caption'), max_length=200, blank=True)
     headrows = models.IntegerField(_('Header rows'), default=1)
     #columns = models.CharField(_('Column layout'), max_length=200, blank=True
     #    help_text=_(
