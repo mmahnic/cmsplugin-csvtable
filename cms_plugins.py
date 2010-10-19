@@ -3,18 +3,19 @@
 # Author:  Marko Mahnič
 # Created: mar 2010 
 
-from django.utils.translation import ugettext as _
-
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-
 from cmsplugin_csvtable.models import CsvTablePlugin
+from django.utils.translation import ugettext as _
+from django.conf import settings
 
 class CMSCsvTablePlugin(CMSPluginBase):
     model = CsvTablePlugin
     name = _('CSV Table')
     render_template = 'plugins/cmsplugin_csvtable/default.html'
     # change_form_template = 'admin/plugins/cmsplugin_csvtable/plugin_change_form.html'
+
+    text_enabled = True
 
     def render(self, context, instance, placeholder):
         rows = instance.getRows()
@@ -28,5 +29,9 @@ class CMSCsvTablePlugin(CMSPluginBase):
             'placeholder': placeholder
         })
         return context
+
+    def icon_src(self, instance):
+        return settings.MEDIA_URL + u"cmsplugin_csvtable/image/table.png"
+
 
 plugin_pool.register_plugin(CMSCsvTablePlugin)
