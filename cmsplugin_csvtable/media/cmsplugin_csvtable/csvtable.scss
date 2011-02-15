@@ -1,0 +1,81 @@
+
+$doc-back-color: #ffffff;
+$doc-color: #000000;
+$csv-table-caption-color: lighten($doc-color, 30%);
+$csv-row-back-head: darken($doc-back-color, 20%);
+$csv-row-back-odd: $doc-back-color;
+$csv-row-back-even: darken($doc-back-color, 10%);
+$csv-table-border-color: lighten($doc-color, 50%);
+
+// Table wrapper: table + caption
+div.csvtable-wraper {
+   margin: 4px;
+
+   .caption {
+      padding-top: 4px;
+      color: $csv-table-caption-color;
+   }
+   // .ts-default-caption { padding-top: 4px; background: #d5d5d5; color: $button-back-color; }
+
+   // Default table formatting
+   table.csvtable {
+      border-collapse: collapse;
+      td, th {
+         border: 1px solid $csv-table-border-color;
+         padding: 2px;
+      }
+   }
+
+   // User-selectable styles of the table (registered in settings)
+
+   // Table style: Plain
+   table.ts-plain {
+   }
+
+   // Table style: Empty
+   table.ts-empty {
+      th {
+         border: none;
+      }
+      td {
+         border: none;
+      }
+   }
+ 
+   // Table style: Default
+   table.ts-default {
+      th {
+         background: $csv-row-back-head;
+         border: 1px solid $csv-table-border-color;
+         padding: 2px;
+      }
+      td {
+         border: 1px solid $csv-table-border-color;
+         padding: 2px;
+      }
+      .even {
+         background: $csv-row-back-even;
+      }
+      .odd {
+         background: $csv-row-back-odd;
+      }
+   }
+}
+
+// Alignment styles for the wrapper
+div.ta-plain {}
+div.ta-left {
+   display: inline;
+   float: left;
+   margin: 0.5em 1em 1em 4px;
+}
+div.ta-right {
+   display: inline;
+   float: right;
+   margin: 0.5em 4px 1em 1em;
+}
+div.ta-center {
+   margin: 0.5em auto 1em auto;
+}
+
+// vim:set fileencoding=utf-8 sw=3 ts=8 et:vim
